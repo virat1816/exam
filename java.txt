@@ -1,0 +1,796 @@
+Aim: Write a program that reads a number in meters, converts
+it to feet, and displays the result.
+
+Program:
+
+import java.util.Scanner;
+class Text {
+public static void main(String args[]) {
+Scanner input = new Scanner(System.in);
+System.out.print("Enter Value in Meters :");
+double meter = input.nextDouble();
+double feet = meter * 3.28084;
+System.out.print(meter + " Meters = " + feet + " Feets");
+}
+}
+
+Aim: Write a program that prompts the user to enter a letter
+and check whether a letter is a vowel or constant.
+
+Program:
+import java.util.Scanner;
+class Text {
+public static void main(String[] args) {
+Scanner input = new Scanner(System.in);
+System.out.print("Enter Character : ");
+char ch = input.next().charAt(0);
+switch (Character.toLowerCase(ch)) {
+case 'a':
+case 'e':
+case 'i':
+case 'o':
+case 'u':
+System.out.print(ch + " is vowel");
+break;
+default: 
+System.out.print(ch + " is constant");
+}
+}
+}
+
+Aim: Write a generic method that returns the minimum
+elements in a two dimensional array.
+import java.util.Scanner;
+public class Text {
+public static void main(String[] args) {
+Integer list[][] = new Integer[10][10];
+int value = 0;
+for (int i = 0; i < list.length; i++) {
+for (int j = 0; j < list[i].length; j++) {
+list[i][j] = ++value;
+}
+}
+System.out.println("Minimum no is = " + min(list));
+}
+public static <E extends Comparable<E>> E min(E list[][]) {
+E min = list[0][0];
+for (E[] elements : list) {
+for (E element : elements) {
+if (element.compareTo(min) < 0) {
+min = element;
+}
+}
+}
+return min;
+}
+}
+
+Aim: Write a program in Java to develop an overloaded constructor. Also
+develop the copy constructor to create a new object with the state of the
+existing object.
+
+Program:
+import java.util.Scanner;
+class Text
+{
+int n;
+text()
+{
+System.out.println("Default Constructor");
+}
+text(int x, int y)
+{
+System.out.println("Addition is "+(x+y));
+}
+text(int a)
+{
+n=a;
+System.out.println("Number is "+n);
+int i,j,flag;
+for(i=1;i<=n;i++)
+{
+flag=0;
+for(j=2;j<=i/2;j++)
+{
+if(i%j==0)
+{
+flag++;
+break;
+}
+}
+if(flag==0)
+{
+System.out.println("Prime is "+i);
+}
+}
+}
+text(text cp, int a)
+{
+n=cp.n;
+int max;
+max=a>n?a:n;
+System.out.println("Maximum number is "+max);
+}
+public static void main(String arg[])
+{
+text cp1=new text(5,6);
+text cp2=new text(5);
+text cp3=new text(cp2,5);
+}
+}
+
+Aim: Write a program to create functions for performing all
+arithmetic operations and use functions in the program.
+
+Program:
+import java.util.Scanner;
+public class Text {
+public static void main(String[] args) {
+Scanner in = new Scanner(System.in);
+System.out.println("Enter first number :");
+int num1 = in.nextInt ();
+System.out.println("Enter second number :");
+int num2 = in.nextInt();
+int sum = num1 + num2;
+int difference = num1 - num2;
+int product = num1 * num2;
+int quotient = num1 / num2;
+int modulo = num1 % num2;
+System.out.println("Sum : " + sum);
+System.out.println("Difference : " + difference);
+}
+System.out.println("Product : "
+System.out.println("Quotient : "
+System.out.println("Modulo : "
++ product);
++ quotient);
++ modulo);
+}
+
+Aim: Write a program in Java to demonstrate single inheritance, multilevel
+inheritance and hierarchical inheritance.
+
+Program:
+import java.util.Scanner;
+class A {
+void salary() {
+System.out.println("Salary= 200000");
+}
+}
+class B extends A {
+void bonus() {
+System.out.println("Bonus=50000");
+}
+}
+class text {
+public static void main(String args[]) {
+Programmer p = new Programmer();
+p.salary(); // calls method of super class
+p.bonus(); // calls method of sub class
+}
+}
+
+Aim: Write a program that illustrates interface inheritance. Interface P12
+inherits from both P1 and P2. Each interface declares one constant and one
+method. The class Q implements P12 . Instantiate Q and invoke each of its
+methods. Each method displays one of the constants.
+
+Program:
+import java.util.Scanner;
+abstract class Shape{
+abstract public void area();
+abstract public void display();
+}
+class Circle extends Shape{
+int radius;
+circle(){}
+circle(int r) {
+radius=8;
+}
+public void area() {
+System.out.println("The area of the circle is : " + 3.14*radius*radius);
+}
+public void display() {
+System.out.println("The figure is Circle with radius : " + radius);
+area();
+}
+}
+class Rectanglem extends Shape{
+int length,breath;
+rectanglem(){}
+rectanglem(int l,int b) {
+length=16;
+breath=8;
+}
+public void area() {
+System.out.println("The area of the rectangle is : " + length*breath);
+}
+public void display() {
+System.out.println("The figure is rectangle with length : " + length + " and breath : " +
+breath);
+area();
+}
+}
+class Triangle extends Shape{
+int base,height;
+triangle(){}
+triangle(int b,int h) {
+base=20;
+height=60;
+}
+public void area() {
+System.out.println("The area of the triangle is : " + 0.5*base*height);
+}
+public void display() {
+System.out.println("The figure is triangle with base : " + base + " and height : " +
+height);
+area();
+}
+}
+public class Text {
+public static void main(String args[])
+{
+shape s;
+triangle t = new triangle(1,3);
+rectanglem r = new rectanglem(3,4);
+circle c = new circle(10);
+s=t;
+s.display();
+s=r;
+s.display();
+s=c;
+s.display();
+}
+}
+
+Aim: Describe abstract class called Shape which has three subclasses say
+Triangle, Rectangle, Circle. Define one method area() in the abstract class
+and override this area() in these three subclasses to calculate for specific
+objects i.e. area() of Triangle subclass should calculate area of triangle etc.
+Same for Rectangle and Circle.
+
+Program:
+import java.util.Scanner;
+abstract class Shape
+{
+float dim1,dim2,radius;
+abstract float area();
+}
+class Triangle extends Shape
+{
+Triangle(float d1, float d2)
+{
+dim1=d1;
+dim2=d2;
+}
+float area()
+{
+System.out.println("Area of Triangle is ");
+return (dim1*dim2)/2;
+}
+}
+class Rectangle extends Shape
+{
+Rectangle(float d1, float d2)
+{
+dim1=d1;
+dim2=d2;
+}
+float area()
+{
+System.out.println("Area of Rectangle is ");
+return dim1*dim2;
+}
+}
+class Circle extends Shape
+{
+Circle(float d1)
+{
+radius=d1;
+}
+float area()
+{
+System.out.println("Area of Circle is ");
+return 3.14f*radius*radius;
+}
+}
+class AbstractClassEx
+{
+public static void main(String arg[])
+{
+Triangle t=new Triangle(4.3f,5.3f);
+Rectangle r=new Rectangle(2.4f,4.2f);
+Circle c=new Circle(10.5f);
+System.out.println(t.area());
+System.out.println(r.area());
+System.out.println(c.area());
+}
+}
+
+Aim: Write a program that executes two threads. One thread displays
+“Thread1” every 2,000 milliseconds, and the other displays “Thread2”
+every 4,000 milliseconds. Create the threads by extending the Thread class.
+
+Program:
+import java.util.Scanner;
+class ThreadA extends Thread{
+public void run( ) {
+for(int i = 1; i <= 5; i++) {
+System.out.println("From Thread A with i = "+ -1*i);
+}
+System.out.println("Exiting from Thread A ...");
+}
+}
+class ThreadB extends Thread {
+public void run( ) {
+for(int j = 1; j <= 5; j++) {
+System.out.println("From Thread B with j= "+2* j);
+}
+System.out.println("Exiting from Thread B ...");
+}
+}
+class ThreadC extends Thread{
+public void run( ) {
+for(int k = 1; k <= 5; k++) {
+System.out.println("From Thread C with k = "+ (2*k-1));
+}
+System.out.println("Exiting from Thread C ...");
+}
+}
+public class text {
+public static void main(String args[]) {
+ThreadA a = new ThreadA();
+ThreadB b = new ThreadB();
+ThreadC c = new ThreadC();
+a.start();
+b.start();
+c.start();
+System.out.println("... Multithreading is over ");
+}
+}
+
+Aim: Write a program that executes two threads. One thread will print the
+even numbers and the another thread will print odd numbers from 1 to 20.
+
+Program:
+import java.util.Scanner;
+class OddEvenPrintMain {
+boolean odd;
+int count = 1;
+int MAX = 20;
+public void printOdd() {
+synchronized (this) {
+while (count < MAX) {
+System.out.println("Checking odd loop");
+while (!odd) {
+try {
+System.out.println("Odd waiting : " + count);
+wait();
+System.out.println("Notified odd :" + count);
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+}
+System.out.println("Odd Thread :" + count);
+count++;
+odd = false;
+notify();
+}
+}
+}
+public void printEven() {
+try {
+Thread.sleep(1000);
+} catch (InterruptedException e1) {
+e1.printStackTrace();
+}
+synchronized (this) {
+while (count < MAX) {
+System.out.println("Checking even loop");
+while (odd) {
+try {
+System.out.println("Even waiting: " + count);
+wait();
+System.out.println("Notified even:" + count);
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+}
+System.out.println("Even thread :" + count);
+count++;
+odd = true;
+notify();
+}
+}
+}
+public static void main(String[] args) {
+OddEvenPrintMain oep = new OddEvenPrintMain();
+oep.odd = true;
+Thread t1 = new Thread(new Runnable() {
+public void run() {
+oep.printEven();
+}
+});
+Thread t2 = new Thread(new Runnable() {
+public void run() {
+oep.printOdd();
+}
+});
+t1.start();
+t2.start();
+try {
+t1.join();
+t2.join();
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+}
+}
+
+Aim: Write a program in Java to create, write, modify, read operations on
+a Text file.
+
+Program:
+import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+class CreateFile {
+public static void main(String args[]) {
+try {
+// Creating an object of a file
+File f0 = new File("D:FileOperationExample.txt");
+if (f0.createNewFile()) {
+System.out.println("File " + f0.getName() + " is created successfully.");
+} else {
+System.out.println("File is already exist in the directory.");
+}
+} catch (IOException exception) {
+System.out.println("An unexpected error is occurred.");
+exception.printStackTrace();
+}
+}
+}
+
+Aim: Write a program in Java to demonstrate throw, throws, finally,
+multiple try blocks and multiple catch exceptions.
+
+Program:
+import java.util.Scanner;
+class Division {
+public static void main(String[] args)
+{
+int a = 10, b = 5, c = 5, result;
+try {
+result = a / (b - c);
+System.out.println("result" + result);
+}
+catch (ArithmeticException e) {
+System.out.println("Exception caught:Division by zero");
+}
+finally {
+System.out.println("I am in final block");
+}
+}
+}
+class Test
+{
+static void avg()
+{
+try
+{
+throw new ArithmeticException("demo");
+}
+catch(ArithmeticException e)
+{
+System.out.println("Exception caught");
+}
+}
+public static void main(String args[])
+{
+avg();
+}
+}
+
+
+Aim: Declare a class called Book having book title & author name as
+members. Create a subclass of it, called Book Details having members.
+Create a subclass of it, called Book Details having price & current stock of
+book as members. Create an array for storing details of n books. Define
+methods to achieve following: Initialization of members To query
+availability of a book by author name/book title To update stock of a book
+on purchase and sell. Define method main to show usage of above methods.
+
+
+Program:
+class Book {
+String author, title, publisher;
+Book(String a, String t, String p) {
+author = a;
+title = t;
+publisher = p;
+}
+}
+class BookInfo extends Book {
+float price;
+int stock_position;
+BookInfo(String a, String t, String p, float amt, int s) {
+super(a, t, p);
+price = amt;
+stock_position = s;
+}
+void show() {
+System.out.println("Book Details:");
+System.out.println("Title: " + title);
+System.out.println("Author: " + author);
+System.out.println("Publisher: " + publisher);
+System.out.println("Price: " + price);
+System.out.println("Stock Available: " + stock_position);
+}
+}
+class text {
+public static void main(String[] args) {
+BookInfo ob1 = new BookInfo("Herbert Schildt", "Complete Reference", "ABC
+Publication", 2359.50F, 10);
+BookInfo ob2 = new BookInfo("Ulman", "system programming", "XYZ Publication",
+359.50F, 20);
+BookInfo ob3 = new BookInfo("Pressman", "Software Engg", "Pearson Publication",
+879.50F, 15);
+ob1.show();
+ob2.show();
+ob3.show();
+}
+}
+
+Aim Write a java program to create an Employee table (Empno., Name,
+Designation, Salary) and insert a record in it.
+
+
+Program:
+class EmployeeDetails {
+int emp_id, salary;
+String name, address, department, email;
+public int getEmp_id() {
+return emp_id;
+}
+public void setEmp_id(int emp_id) {
+this.emp_id = emp_id;
+}
+public int getSalary() {
+return salary;
+}
+public void setSalary(int salary) {
+this.salary = salary;
+}
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public String getAddress() {
+return address;
+}
+public void setAddress(String address) {
+this.address = address;
+}
+public String getDepartment() {
+return department;
+}
+public void setDepartment(String department) {
+this.department = department;
+}
+public String getEmail() {
+return email;
+}
+public void setEmail(String email) {
+this.email = email;
+}
+public String toString() {
+return "Employee [emp_id = " + emp_id + ", salary = " + salary + ", name = " + name + ",
+address = " + address + ", department = " + department + ", email = " + email + "]";
+}
+}
+class Employee{
+public static void main(String args[]) {
+EmployeeDetails emp = new EmployeeDetails();
+emp.setEmp_id(101);
+emp.setName("Jay");
+emp.setDepartment("IT");
+emp.setSalary(50000);
+emp.setAddress("Surat");
+emp.setEmail("jay@gmail.com");
+system.out.println(emp);
+int sal = emp.getSalary();
+int increment = 0;
+if ((sal >=1000) && (sal <=1500))
+{
+increment += (sal * 2)/100;
+sal = sal+increment;
+emp.setSalary(sal);
+System.out.println("\n Salary is incremented \n");
+System.out.println(emp);
+}
+else if ((sal >=1500) && (sal <=20000))
+{
+increment += (sal * 5)/100;
+sal = sal+increment;
+emp.setSalary(sal);
+System.out.println("\n Salary is incremented \n");
+System.out.println(emp);
+}
+else
+{
+System.out.println("\n Salary is not incremented \n");
+System.out.println(emp);
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Program:
+import java.util.ArrayList;
+import java.util.Scanner;
+class Project {
+public static class BookDetails {
+int BookID, ISSNNo, Price;
+String Author, BookTitle, Publisher, Year;
+public BookDetails(int BookID, int ISSNNo, String Author, String BookTitle, int Price,
+String Publisher,
+String Year) {
+this.BookID = BookID;
+this.ISSNNo = ISSNNo;
+this.Author = Author;
+this.BookTitle = BookTitle;
+this.Price = Price;
+this.Publisher = Publisher;
+this.Year = Year;
+}
+void displayAllData() {
+System.out.println(
+"BookDetails [BookID = " + BookID + ", ISSNNo = " + ISSNNo + ", Author = "
++
+Author
++ ", BookTitle = "
++ BookTitle
++ ", Price = " + Price + ", Publisher = " + Publisher + ", Year = " + Year +
+"]");
+}
+}
+public static void main(String[] a) {
+ArrayList<BookDetails> bookDetailsList = new ArrayList<BookDetails>();
+int option = 0;
+Scanner in = new Scanner(System.in);
+Scanner str = new Scanner(System.in);
+while (option != 7) {
+System.out.println("\n\n************\n");
+System.out.println("1. Create a Library Table");
+System.out.println("2. Insert a Record");
+System.out.println("3. Update a Record");
+System.out.println("4. Display all the Records");
+System.out.println("5. Display names of books stating with 'J' character");
+System.out.println("6. Delete a record");
+System.out.println("7. exit");
+System.out.print("Enter Your Choice : ");
+option = in.nextInt();
+switch (option) {
+case 1:
+System.out.println("Library Details Table Created");
+break;
+case 2:
+int BookID, ISSNNo, Price;
+String Author, BookTitle, Publisher, Year;
+System.out.println("Enter BookId = ");
+BookID = in.nextInt();
+System.out.println("Enter ISSNNo = ");
+ISSNNo = in.nextInt();
+System.out.println("Enter Price = ");
+Price = in.nextInt();
+System.out.println("Enter Book Title = ");
+BookTitle = str.nextLine();
+System.out.println("Enter Author Name = ");
+Author = str.nextLine();
+System.out.println("Enter Publisher Name = ");
+Publisher = str.nextLine();
+System.out.println("Enter Year = ");
+Year = str.nextLine();
+BookDetails data = new BookDetails(
+BookID,
+ISSNNo,
+Author,
+BookTitle, Price, Publisher, Year);
+bookDetailsList.add(data);
+System.out.println("Record Updated Successfully");
+break;
+case 3:
+for (int i = 0; i < bookDetailsList.size(); i++) {
+System.out.println("BookDetails [BookID = " +
+bookDetailsList.get(i).BookID + ", ISSNNo = "
++ bookDetailsList.get(i).ISSNNo + ", Author = " +
+bookDetailsList.get(i).Author
++ ", BookTitle = "
++ bookDetailsList.get(i).BookTitle
++ ", Price = " + bookDetailsList.get(i).Price + ", Publisher = "
++ bookDetailsList.get(i).Publisher + ", Year = " +
+bookDetailsList.get(i).Year +
+"]");
+}
+int bookidForUpdate = 0;
+System.out.println("Enter Book id of record which you want to update = ");
+str.nextInt();
+// int BookID1, ISSNNo1, Price1;
+// String Author1, BookTitle1, Publisher, Year;
+System.out.println("Enter BookId = ");
+BookID = in.nextInt();
+System.out.println("Enter ISSNNo = ");
+ISSNNo = in.nextInt();
+System.out.println("Enter Price = ");
+Price = in.nextInt();
+System.out.println("Enter Book Title = ");
+BookTitle = str.nextLine();
+System.out.println("Enter Author Name = ");
+Author = str.nextLine();
+System.out.println("Enter Publisher Name = ");
+Publisher = str.nextLine();
+System.out.println("Enter Year = ");
+Year = str.nextLine();
+BookDetails updated = new BookDetails(
+BookID,
+ISSNNo,
+Author,
+BookTitle, Price, Publisher, Year);
+for (int i = 0; i < bookDetailsList.size(); ++i) {
+if (bookDetailsList.get(i).BookID == bookidForUpdate) {
+bookDetailsList.set(i, updated);
+System.out.println("Record Updated Successfully");
+}
+}
+break;
+case 4:
+for (int i = 0; i < bookDetailsList.size(); i++) {
+System.out.println("BookDetails [BookID = " + bookDetailsList.get(i).BookID + ",
+ISSNNo = " + bookDetailsList.get(i).ISSNNo + ", Author = " +
+bookDetailsList.get(i).Author+ ", BookTitle = "+ bookDetailsList.get(i).BookTitle
++ ", Price = " + bookDetailsList.get(i).Price + ", Publisher = "
++ bookDetailsList.get(i).Publisher + ", Year = " + bookDetailsList.get(i).Year + "]");
+}
+break;
+case 5:
+for (int i = 0; i < bookDetailsList.size(); i++) {
+if (bookDetailsList.get(i).BookTitle.charAt(0) == 'j'
+|| bookDetailsList.get(i).BookTitle.charAt(0) == 'J') {
+System.out.println(bookDetailsList.get(i).BookTitle);
+}
+} break;
+case 6:
+int bookIdForDelete = 0;
+System.out.println("Enter Book id of record which you want to delete = ");
+str.nextInt();
+for (int i = 0; i < bookDetailsList.size(); i++) {
+if (bookDetailsList.get(i).BookID == bookIdForDelete) {
+bookDetailsList.remove(i);
+System.out.println("Record Deleted Successfully");
+}
+}
+break;
+case 7:
+System.out.println("\nOptiona not available\n ");
+break;
+}
+}
+}
+}
+
